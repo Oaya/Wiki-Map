@@ -22,9 +22,9 @@ $().ready(() => {
 const bindNavButtons = () => {
   $('#maps-new').click(newMap);
   $('#login-button').click(login);
-  $('#maps-view-all').click({ state: 0}, changeView);
-  $('#maps-view-fav').click({ state: 1}, changeView);
-  $('#maps-view-edit').click({ state: 2}, changeView);
+  $('#maps-view-all').click({ state: 0 }, changeView);
+  $('#maps-view-fav').click({ state: 1 }, changeView);
+  $('#maps-view-edit').click({ state: 2 }, changeView);
 };
 
 const login = () => {
@@ -75,7 +75,7 @@ const loadMaps = () => {
     .catch(err => {
       console.log('LoadMaps error');
       console.log(err);
-      console.error(err.stack);
+
     });
 };
 
@@ -116,7 +116,7 @@ const createMapElement = (map, isFav) => {
   </a>
   `);
 
-  const toggleFavourite = function(event) {
+  const toggleFavourite = function (event) {
     event.preventDefault();
     const mapUser = {
       userId: Cookies.get('userId'),
@@ -139,12 +139,12 @@ const createMapElement = (map, isFav) => {
     }
   };
 
-  const toggleShare = function(event) {
+  const toggleShare = function (event) {
     event.preventDefault();
     $mapCard.find('.card-url').slideToggle();
   };
 
-  const delMap = function(event) {
+  const delMap = function (event) {
     event.preventDefault();
     $
       .get(`/maps/${map.id}/delete`)
